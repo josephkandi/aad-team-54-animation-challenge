@@ -4,4 +4,6 @@
     <string name="wind_speed">Wind Speed</string>
     <string name="pressure">Pressure</string>
     <string name="humidity">Humidity</string>
+    <string name="share">Share</string>
+    <string name="settings">Settings</string>
 </resources>
