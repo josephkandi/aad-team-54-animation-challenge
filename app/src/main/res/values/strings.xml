@@ -6,4 +6,6 @@
     <string name="humidity">Humidity</string>
     <string name="share">Share</string>
     <string name="settings">Settings</string>
+    <string name="today">Today</string>
+    <string name="weather_icon">Weather icon</string>
 </resources>
