@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_marginBottom="8dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -33,10 +33,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:fontFamily="cursive"
         android:gravity="center"
         android:text="@string/today"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:fontFamily="cursive"
         app:layout_constraintBottom_toTopOf="@+id/ivTodayIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -46,6 +46,7 @@
         android:id="@+id/ivTodayIcon"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:contentDescription="@string/weather_icon"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -69,24 +70,24 @@
         android:id="@+id/tvTodayTempMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="32\u00b0"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:fontFamily="sans-serif-condensed-light"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         app:layout_constraintBottom_toBottomOf="@+id/ivTodayIcon"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/ivTodayIcon" />
+        app:layout_constraintTop_toTopOf="@+id/ivTodayIcon"
+        tools:text="32\u00b0" />
 
     <TextView
         android:id="@+id/tvTodayTempMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="19\u00b0"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:fontFamily="sans-serif-condensed-light"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="@+id/tvTodayInfo"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/tvTodayInfo" />
+        app:layout_constraintTop_toTopOf="@+id/tvTodayInfo"
+        tools:text="19\u00b0" />
 
 </android.support.constraint.ConstraintLayout>

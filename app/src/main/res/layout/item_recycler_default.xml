@@ -19,11 +19,11 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
+        android:contentDescription="@string/weather_icon"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:srcCompat="@drawable/ic_weather_clear"
-        android:contentDescription="@string/weather_icon" />
+        app:srcCompat="@drawable/ic_weather_clear" />
 
     <TextView
         android:id="@+id/tvDate"
