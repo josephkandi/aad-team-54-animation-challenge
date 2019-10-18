@@ -22,7 +22,8 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:srcCompat="@drawable/ic_weather_clear" />
+        app:srcCompat="@drawable/ic_weather_clear"
+        android:contentDescription="@string/weather_icon" />
 
     <TextView
         android:id="@+id/tvDate"
