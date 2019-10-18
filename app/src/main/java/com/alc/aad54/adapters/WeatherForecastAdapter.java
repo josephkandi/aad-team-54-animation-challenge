@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +47,12 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
     }
 
     public class WeatherViewHolder extends RecyclerView.ViewHolder {
+
+        TextView tvDate;
+        TextView tvInfo;
+        TextView tvTempMin;
+        TextView tvTempMax;
+
 
         public WeatherViewHolder(@NonNull View itemView) {
             super(itemView);
