@@ -29,7 +29,7 @@
         app:layout_constraintGuide_percent="0.7" />
 
     <TextView
-        android:id="@+id/tvToday"
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -37,13 +37,13 @@
         android:gravity="center"
         android:text="@string/today"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/ivTodayIcon"
+        app:layout_constraintBottom_toTopOf="@+id/ivIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <ImageView
-        android:id="@+id/ivTodayIcon"
+        android:id="@+id/ivIcon"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:contentDescription="@string/weather_icon"
@@ -54,40 +54,40 @@
         app:srcCompat="@drawable/ic_weather_clear" />
 
     <TextView
-        android:id="@+id/tvTodayInfo"
+        android:id="@+id/tvInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-condensed-light"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="@+id/ivTodayIcon"
+        app:layout_constraintEnd_toEndOf="@+id/ivIcon"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/ivTodayIcon"
-        app:layout_constraintTop_toBottomOf="@+id/ivTodayIcon"
+        app:layout_constraintStart_toStartOf="@+id/ivIcon"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcon"
         tools:text="Clear skies" />
 
     <TextView
-        android:id="@+id/tvTodayTempMax"
+        android:id="@+id/tvTempMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        app:layout_constraintBottom_toBottomOf="@+id/ivTodayIcon"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/ivTodayIcon"
+        app:layout_constraintTop_toTopOf="@+id/ivIcon"
         tools:text="32\u00b0" />
 
     <TextView
-        android:id="@+id/tvTodayTempMin"
+        android:id="@+id/tvTempMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTodayInfo"
+        app:layout_constraintBottom_toBottomOf="@+id/tvInfo"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/tvTodayInfo"
+        app:layout_constraintTop_toTopOf="@+id/tvInfo"
         tools:text="19\u00b0" />
 
 </android.support.constraint.ConstraintLayout>

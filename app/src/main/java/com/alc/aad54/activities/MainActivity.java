@@ -6,20 +6,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.alc.aad54.R;
 import com.alc.aad54.adapters.WeatherForecastAdapter;
-import com.alc.aad54.models.WeatherForecastModel;
+import com.alc.aad54.models.WeatherForecast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+import static com.alc.aad54.constants.Constants.DETAILS_EXTRA;
+
+public class MainActivity extends AppCompatActivity implements WeatherForecastAdapter.ListItemClickListener {
 
     private Context context;
     private RecyclerView recyclerView;
     private WeatherForecastAdapter weatherForecastAdapter;
-    private ArrayList<WeatherForecastModel> weatherForecastModelArrayList = new ArrayList<>();
+    private ArrayList<WeatherForecast> weatherForecastArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
-        weatherForecastAdapter = new WeatherForecastAdapter(context, weatherForecastModelArrayList);
+        weatherForecastAdapter = new WeatherForecastAdapter(context, weatherForecastArrayList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(weatherForecastAdapter);
 
@@ -48,27 +51,35 @@ public class MainActivity extends AppCompatActivity {
     //this method only for testing purposes, would be replaced by api call to fetch real json data
     private void addDummyData() {
 
-        WeatherForecastModel weatherForecast = new WeatherForecastModel("Sunny", "14", "25", "Monday, 12 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_clear);
-        weatherForecastModelArrayList.add(weatherForecast);
+        WeatherForecast weatherForecast = new WeatherForecast("Sunny", "14", "25", "Monday, 12 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_clear);
+        weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecastModel("Sunny", "12", "34", "Tuesday, 13 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_clear);
-        weatherForecastModelArrayList.add(weatherForecast);
+        weatherForecast = new WeatherForecast("Sunny", "12", "34", "Tuesday, 13 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_clear);
+        weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecastModel("Rain", "9", "12", "Wednesday, 14 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_showers);
-        weatherForecastModelArrayList.add(weatherForecast);
+        weatherForecast = new WeatherForecast("Rain", "9", "12", "Wednesday, 14 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_showers);
+        weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecastModel("Overcast", "7", "23", "Thursday, 15 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_overcast);
-        weatherForecastModelArrayList.add(weatherForecast);
+        weatherForecast = new WeatherForecast("Overcast", "7", "23", "Thursday, 15 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_overcast);
+        weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecastModel("Misty", "9", "14", "Friday, 16 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_mist);
-        weatherForecastModelArrayList.add(weatherForecast);
+        weatherForecast = new WeatherForecast("Misty", "9", "14", "Friday, 16 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_mist);
+        weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecastModel("Rain", "3", "29", "Saturday, 17 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_showers_scattered);
-        weatherForecastModelArrayList.add(weatherForecast);
+        weatherForecast = new WeatherForecast("Rain", "3", "29", "Saturday, 17 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_showers_scattered);
+        weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecastModel("Cloudy", "7", "36", "Sunday, 18 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_few_clouds);
-        weatherForecastModelArrayList.add(weatherForecast);
+        weatherForecast = new WeatherForecast("Cloudy", "7", "36", "Sunday, 18 June", "50%", "1111", "3 km/h", "1", R.drawable.ic_weather_few_clouds);
+        weatherForecastArrayList.add(weatherForecast);
     }
 
 
+    @Override
+    public void onItemClicked(int position) {
+
+        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+        intent.putExtra(DETAILS_EXTRA, weatherForecastArrayList.get(position));
+        startActivity(intent);
+
+    }
 }

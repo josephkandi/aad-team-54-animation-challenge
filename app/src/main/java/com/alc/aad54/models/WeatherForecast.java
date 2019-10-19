@@ -3,7 +3,7 @@ package com.alc.aad54.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class WeatherForecastModel implements Parcelable {
+public class WeatherForecast implements Parcelable {
 
     private String info;
     private String tempMin;
@@ -15,10 +15,10 @@ public class WeatherForecastModel implements Parcelable {
     private String uv;
     private int icon;
 
-    public WeatherForecastModel() {
+    public WeatherForecast() {
     }
 
-    public WeatherForecastModel(String info, String tempMin, String tempMax, String date, String humidity, String pressure, String wind, String uv, int icon) {
+    public WeatherForecast(String info, String tempMin, String tempMax, String date, String humidity, String pressure, String wind, String uv, int icon) {
         this.info = info;
         this.tempMin = tempMin;
         this.tempMax = tempMax;
@@ -30,7 +30,7 @@ public class WeatherForecastModel implements Parcelable {
         this.icon = icon;
     }
 
-    protected WeatherForecastModel(Parcel in) {
+    protected WeatherForecast(Parcel in) {
         info = in.readString();
         tempMin = in.readString();
         tempMax = in.readString();
@@ -42,15 +42,15 @@ public class WeatherForecastModel implements Parcelable {
         icon = in.readInt();
     }
 
-    public static final Creator<WeatherForecastModel> CREATOR = new Creator<WeatherForecastModel>() {
+    public static final Creator<WeatherForecast> CREATOR = new Creator<WeatherForecast>() {
         @Override
-        public WeatherForecastModel createFromParcel(Parcel in) {
-            return new WeatherForecastModel(in);
+        public WeatherForecast createFromParcel(Parcel in) {
+            return new WeatherForecast(in);
         }
 
         @Override
-        public WeatherForecastModel[] newArray(int size) {
-            return new WeatherForecastModel[size];
+        public WeatherForecast[] newArray(int size) {
+            return new WeatherForecast[size];
         }
     };
 

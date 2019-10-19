@@ -3,6 +3,7 @@ package com.alc.aad54.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.alc.aad54.R;
+import com.alc.aad54.models.WeatherForecast;
+
+import static com.alc.aad54.constants.Constants.DEGREE_SYMBOL;
+import static com.alc.aad54.constants.Constants.DETAILS_EXTRA;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -34,6 +39,22 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         setupVariables();
+
+        Intent intent = getIntent();
+        if(intent != null){
+            WeatherForecast weatherForecast = intent.getParcelableExtra(DETAILS_EXTRA);
+            if (weatherForecast != null) {
+                tvDate.setText(weatherForecast.getDate());
+                tvTempMax.setText(TextUtils.concat(weatherForecast.getTempMax(), DEGREE_SYMBOL));
+                tvTempMin.setText(TextUtils.concat(weatherForecast.getTempMin(), DEGREE_SYMBOL));
+                tvInfo.setText(weatherForecast.getInfo());
+                tvHumidity.setText(weatherForecast.getHumidity());
+                tvPressure.setText(weatherForecast.getPressure());
+                tvWind.setText(weatherForecast.getWind());
+                tvUV.setText(weatherForecast.getUv());
+                ivIcon.setImageResource(weatherForecast.getIcon());
+            }
+        }
     }
 
     private void setupVariables() {

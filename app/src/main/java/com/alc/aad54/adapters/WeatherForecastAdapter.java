@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alc.aad54.R;
-import com.alc.aad54.models.WeatherForecastModel;
+import com.alc.aad54.models.WeatherForecast;
 
 import java.util.ArrayList;
 
@@ -20,19 +20,41 @@ import static com.alc.aad54.constants.Constants.DEGREE_SYMBOL;
 
 public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecastAdapter.WeatherViewHolder> {
 
-    private Context context;
-    private ArrayList<WeatherForecastModel> weatherForecastModelArrayList;
+    private static final int VIEW_TYPE_TODAY = 0;
+    private static final int VIEW_TYPE_DEFAULT = 1;
 
-    public WeatherForecastAdapter(Context context, ArrayList<WeatherForecastModel> weatherForecastModelArrayList) {
+    private Context context;
+    private ArrayList<WeatherForecast> weatherForecastArrayList;
+    private ListItemClickListener listItemClickListener;
+
+    public WeatherForecastAdapter(Context context, ArrayList<WeatherForecast> weatherForecastArrayList, ListItemClickListener listItemClickListener) {
         this.context = context;
-        this.weatherForecastModelArrayList = weatherForecastModelArrayList;
+        this.weatherForecastArrayList = weatherForecastArrayList;
+        this.listItemClickListener = listItemClickListener;
     }
 
     @NonNull
     @Override
     public WeatherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.item_recycler_default, parent, false);
+        int layoutID = -1;
+
+        switch (viewType){
+
+            case VIEW_TYPE_TODAY:
+                layoutID = R.layout.item_recycler_today;
+                break;
+
+            case VIEW_TYPE_DEFAULT:
+                layoutID = R.layout.item_recycler_default;
+                break;
+
+            default:
+                throw new IllegalArgumentException("Invalid view type: " + viewType);
+        }
+
+        View view = LayoutInflater.from(context).inflate(layoutID, parent, false);
+        view.setFocusable(true);
         return new WeatherViewHolder(view);
     }
 
@@ -40,27 +62,34 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
     public void onBindViewHolder(@NonNull WeatherViewHolder holder, int position) {
 
         //only dummy data shown for test purposes
-        WeatherForecastModel weatherForecastModel = weatherForecastModelArrayList.get(holder.getAdapterPosition());
+        WeatherForecast weatherForecast = weatherForecastArrayList.get(holder.getAdapterPosition());
 
-        holder.tvDate.setText(weatherForecastModel.getDate());
-        holder.tvInfo.setText(weatherForecastModel.getInfo());
-        holder.tvTempMin.setText(TextUtils.concat(weatherForecastModel.getTempMin(), DEGREE_SYMBOL));
-        holder.tvTempMax.setText(TextUtils.concat(weatherForecastModel.getTempMax(), DEGREE_SYMBOL));
-        holder.ivIcon.setImageResource(weatherForecastModel.getIcon());
+        holder.tvDate.setText(weatherForecast.getDate());
+        holder.tvInfo.setText(weatherForecast.getInfo());
+        holder.tvTempMin.setText(TextUtils.concat(weatherForecast.getTempMin(), DEGREE_SYMBOL));
+        holder.tvTempMax.setText(TextUtils.concat(weatherForecast.getTempMax(), DEGREE_SYMBOL));
+        holder.ivIcon.setImageResource(weatherForecast.getIcon());
     }
 
     @Override
     public int getItemCount() {
-        if(weatherForecastModelArrayList == null) {
+        if(weatherForecastArrayList == null) {
             return 0;
         }else{
-            return weatherForecastModelArrayList.size();
+            return weatherForecastArrayList.size();
         }
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        if(position == 0){
+            return VIEW_TYPE_TODAY;
+        }else{
+            return VIEW_TYPE_DEFAULT;
+        }
+    }
 
-    //TODO: add second viewholder for today!s weather at position 0 of recyclerView
-    public class WeatherViewHolder extends RecyclerView.ViewHolder {
+    public class WeatherViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tvDate;
         TextView tvInfo;
@@ -78,8 +107,17 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
             tvTempMin = itemView.findViewById(R.id.tvTempMin);
 
             ivIcon = itemView.findViewById(R.id.ivIcon);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            listItemClickListener.onItemClicked(getAdapterPosition());
         }
     }
 
-    //TODO: add onClickListener interface
+    public interface ListItemClickListener{
+        void onItemClicked(int position);
+    }
 }
