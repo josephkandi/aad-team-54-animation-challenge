@@ -61,25 +61,25 @@ public class MainActivity extends AppCompatActivity implements WeatherForecastAd
     //this method only for testing purposes, would be replaced by api call to fetch real json data
     private void addDummyData() {
 
-        WeatherForecast weatherForecast = new WeatherForecast("Sunny", "14", "25", "Monday, 12 June", "50%", "1111", "3 km/h", "1", drawable.ic_weather_clear);
+        WeatherForecast weatherForecast = new WeatherForecast("Sunny", "14", "25", "Monday, 12 June", "50%", "1111 hPa", "3 km/h", "1", drawable.ic_weather_clear);
         weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecast("Sunny", "12", "34", "Tuesday, 13 June", "50%", "1111", "3 km/h", "1", drawable.ic_weather_clear);
+        weatherForecast = new WeatherForecast("Sunny", "12", "34", "Tuesday, 13 June", "50%", "1111 hPa", "3 km/h", "1", drawable.ic_weather_clear);
         weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecast("Rain", "9", "12", "Wednesday, 14 June", "50%", "1111", "3 km/h", "1", drawable.ic_weather_showers);
+        weatherForecast = new WeatherForecast("Rain", "9", "12", "Wednesday, 14 June", "50%", "1111 hPa", "3 km/h", "1", drawable.ic_weather_showers);
         weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecast("Overcast", "7", "23", "Thursday, 15 June", "50%", "1111", "3 km/h", "1", drawable.ic_weather_overcast);
+        weatherForecast = new WeatherForecast("Overcast", "7", "23", "Thursday, 15 June", "50%", "1111 hPa", "3 km/h", "1", drawable.ic_weather_overcast);
         weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecast("Misty", "9", "14", "Friday, 16 June", "50%", "1111", "3 km/h", "1", drawable.ic_weather_mist);
+        weatherForecast = new WeatherForecast("Misty", "9", "14", "Friday, 16 June", "50%", "1111 hPa", "3 km/h", "1", drawable.ic_weather_mist);
         weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecast("Rain", "3", "29", "Saturday, 17 June", "50%", "1111", "3 km/h", "1", drawable.ic_weather_showers_scattered);
+        weatherForecast = new WeatherForecast("Rain", "3", "29", "Saturday, 17 June", "50%", "1111 hPa", "3 km/h", "1", drawable.ic_weather_showers_scattered);
         weatherForecastArrayList.add(weatherForecast);
 
-        weatherForecast = new WeatherForecast("Cloudy", "7", "36", "Sunday, 18 June", "50%", "1111", "3 km/h", "1", drawable.ic_weather_few_clouds);
+        weatherForecast = new WeatherForecast("Cloudy", "7", "36", "Sunday, 18 June", "50%", "1111 hPa", "3 km/h", "1", drawable.ic_weather_few_clouds);
         weatherForecastArrayList.add(weatherForecast);
     }
 

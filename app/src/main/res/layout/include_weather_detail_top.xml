@@ -31,25 +31,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif-condensed-light"
         android:gravity="center"
-        tools:text="Wednesday, 25 December"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:fontFamily="cursive"
-        app:layout_constraintBottom_toTopOf="@+id/ivDetailIcon"
         android:transitionName="dateTransition"
+        app:layout_constraintBottom_toTopOf="@+id/ivDetailIcon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Wednesday, 25 December" />
 
 
     <ImageView
         android:id="@+id/ivDetailIcon"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:transitionName="iconTransition"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        android:transitionName="iconTransition"
         app:srcCompat="@drawable/ic_weather_clear" />
 
     <TextView
@@ -59,35 +59,35 @@
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-condensed-light"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:transitionName="infoTransition"
         app:layout_constraintEnd_toEndOf="@+id/ivDetailIcon"
         app:layout_constraintStart_toStartOf="@+id/ivDetailIcon"
         app:layout_constraintTop_toBottomOf="@+id/ivDetailIcon"
-        android:transitionName="infoTransition"
         tools:text="Clear skies" />
 
     <TextView
         android:id="@+id/tvDetailTempMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="32\u00b0"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:fontFamily="sans-serif-condensed-light"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:transitionName="maxTempTransition"
         app:layout_constraintBottom_toBottomOf="@+id/ivDetailIcon"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        android:transitionName="maxTempTransition"
-        app:layout_constraintTop_toTopOf="@+id/ivDetailIcon" />
+        app:layout_constraintTop_toTopOf="@+id/ivDetailIcon"
+        tools:text="32\u00b0" />
 
     <TextView
         android:id="@+id/tvDetailTempMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="19\u00b0"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:fontFamily="sans-serif-condensed-light"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:transitionName="minTempTransition"
         app:layout_constraintBottom_toBottomOf="@+id/tvDetailInfo"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        android:transitionName="minTempTransition"
-        app:layout_constraintTop_toTopOf="@+id/tvDetailInfo" />
+        app:layout_constraintTop_toTopOf="@+id/tvDetailInfo"
+        tools:text="19\u00b0" />
 </android.support.constraint.ConstraintLayout>
