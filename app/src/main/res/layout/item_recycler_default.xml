@@ -23,6 +23,7 @@
         android:contentDescription="@string/weather_icon"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
+        android:transitionName="iconTransition"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
         app:srcCompat="@drawable/ic_weather_clear" />
 
@@ -36,6 +37,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintStart_toEndOf="@+id/ivIcon"
         app:layout_constraintTop_toTopOf="@+id/ivIcon"
+        android:transitionName="dateTransition"
         tools:text="Thursday, 26 December" />
 
     <TextView
@@ -46,6 +48,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
         app:layout_constraintStart_toStartOf="@+id/tvDate"
+        android:transitionName="infoTransition"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
         tools:text="Clear Skies" />
 
@@ -59,6 +62,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
+        android:transitionName="maxTempTransition"
         tools:text="32\u00b0" />
 
     <TextView
@@ -71,5 +75,6 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/tvTempMax"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
+        android:transitionName="minTempTransition"
         tools:text="16\u00b0" />
 </android.support.constraint.ConstraintLayout>

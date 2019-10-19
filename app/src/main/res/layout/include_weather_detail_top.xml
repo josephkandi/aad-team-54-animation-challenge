@@ -36,6 +36,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:fontFamily="cursive"
         app:layout_constraintBottom_toTopOf="@+id/ivDetailIcon"
+        android:transitionName="dateTransition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -48,6 +49,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
+        android:transitionName="iconTransition"
         app:srcCompat="@drawable/ic_weather_clear" />
 
     <TextView
@@ -58,9 +60,9 @@
         android:fontFamily="sans-serif-condensed-light"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/ivDetailIcon"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/ivDetailIcon"
         app:layout_constraintTop_toBottomOf="@+id/ivDetailIcon"
+        android:transitionName="infoTransition"
         tools:text="Clear skies" />
 
     <TextView
@@ -73,6 +75,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/ivDetailIcon"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
+        android:transitionName="maxTempTransition"
         app:layout_constraintTop_toTopOf="@+id/ivDetailIcon" />
 
     <TextView
@@ -85,5 +88,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvDetailInfo"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
+        android:transitionName="minTempTransition"
         app:layout_constraintTop_toTopOf="@+id/tvDetailInfo" />
 </android.support.constraint.ConstraintLayout>
