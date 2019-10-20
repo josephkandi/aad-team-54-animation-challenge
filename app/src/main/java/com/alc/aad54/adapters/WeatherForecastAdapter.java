@@ -37,7 +37,7 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
     @Override
     public WeatherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        int layoutID = -1;
+        int layoutID;
 
         switch (viewType){
 
@@ -98,7 +98,7 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
         ImageView ivIcon;
 
 
-        public WeatherViewHolder(@NonNull View itemView) {
+        WeatherViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvDate = itemView.findViewById(R.id.tvDate);
@@ -113,11 +113,11 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
 
         @Override
         public void onClick(View view) {
-            listItemClickListener.onItemClicked(getAdapterPosition());
+            listItemClickListener.onItemClicked(getAdapterPosition(), view);
         }
     }
 
     public interface ListItemClickListener{
-        void onItemClicked(int position);
+        void onItemClicked(int position, View view);
     }
 }

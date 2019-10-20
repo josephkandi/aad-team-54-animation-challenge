@@ -1,6 +1,8 @@
 package com.alc.aad54.activities;
 
 
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -65,7 +67,7 @@ public class DetailActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                onBackPressed();
             }
         });
 
@@ -77,8 +79,38 @@ public class DetailActivity extends AppCompatActivity {
         tvPressure = findViewById(R.id.tvDetailPressureInfo);
         tvWind = findViewById(R.id.tvDetailWindSpeedInfo);
         tvUV = findViewById(R.id.tvDetailUVInfo);
+        TextView tvHumidityLabel = findViewById(R.id.tvDetailHumidity);
+        TextView tvPressureLabel = findViewById(R.id.tvDetailPressure);
+        TextView tvWindLabel = findViewById(R.id.tvDetailWindSpeed);
+        TextView tvUVLabel = findViewById(R.id.tvDetailUVIndex);
 
         ivIcon = findViewById(R.id.ivDetailIcon);
+
+        ObjectAnimator objectAnimator = (ObjectAnimator) AnimatorInflater.loadAnimator(DetailActivity.this, R.animator.right_in);
+        objectAnimator.setTarget(tvHumidity);
+        ObjectAnimator objectAnimator1 = (ObjectAnimator) AnimatorInflater.loadAnimator(DetailActivity.this, R.animator.right_in);
+        objectAnimator1.setTarget(tvPressure);
+        ObjectAnimator objectAnimator2 = (ObjectAnimator) AnimatorInflater.loadAnimator(DetailActivity.this, R.animator.right_in);
+        objectAnimator2.setTarget(tvWind);
+        ObjectAnimator objectAnimator3 = (ObjectAnimator) AnimatorInflater.loadAnimator(DetailActivity.this, R.animator.right_in);
+        objectAnimator3.setTarget(tvUV);
+        objectAnimator.start();
+        objectAnimator1.start();
+        objectAnimator2.start();
+        objectAnimator3.start();
+
+        ObjectAnimator objectAnimator4 = (ObjectAnimator) AnimatorInflater.loadAnimator(DetailActivity.this, R.animator.left_in);
+        objectAnimator4.setTarget(tvHumidityLabel);
+        ObjectAnimator objectAnimator5 = (ObjectAnimator) AnimatorInflater.loadAnimator(DetailActivity.this, R.animator.left_in);
+        objectAnimator5.setTarget(tvPressureLabel);
+        ObjectAnimator objectAnimator6 = (ObjectAnimator) AnimatorInflater.loadAnimator(DetailActivity.this, R.animator.left_in);
+        objectAnimator6.setTarget(tvWindLabel);
+        ObjectAnimator objectAnimator7 = (ObjectAnimator) AnimatorInflater.loadAnimator(DetailActivity.this, R.animator.left_in);
+        objectAnimator7.setTarget(tvUVLabel);
+        objectAnimator4.start();
+        objectAnimator5.start();
+        objectAnimator6.start();
+        objectAnimator7.start();
     }
 
     @Override
